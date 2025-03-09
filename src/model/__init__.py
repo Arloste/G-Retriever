@@ -12,8 +12,8 @@ load_model = {
 
 # Replace the following with the model paths
 llama_model_path = {
-    "7b": "meta-llama/Llama-2-7b-hf",
-    "7b_chat": "meta-llama/Llama-2-7b-chat-hf",
-    "13b": "meta-llama/Llama-2-13b-hf",
-    "13b_chat": "meta-llama/Llama-2-13b-chat-hf",
+    "7b": "unsloth/llama-2-7b",
+    "7b_chat": "unsloth/llama-2-7b-chat",
+    "13b": "unsloth/llama-2-13b",
+    # "13b_chat": "unsloth/llama-2-13b-chat", # no such model
 }
