@@ -5,11 +5,25 @@ from torch.utils.data import Dataset
 
 
 PATH = 'dataset/expla_graphs'
+# PATH = '../test_input'
 
 
 class ExplaGraphsDataset(Dataset):
     def __init__(self):
         super().__init__()
+
+        # with open(f"{PATH}/output/nodes.csv", 'r') as f:
+        #     self.nodes = f.readlines()
+        
+        # with open(f"{PATH}/output/edges.csv", 'r') as f:
+        #     self.edges = f.readlines()
+
+        # with open(f"{PATH}/questions.jsonl", 'r') as f:
+        #     self.questions = f.readlines()
+        #     self.questions = [json.loads(question) for question in self.questions]
+        
+        # self.graph = None
+        # self.graph_type = 'Repository Graph'
 
         self.text = pd.read_csv(f'{PATH}/train_dev.tsv', sep='\t')
         self.prompt = 'Question: Do argument 1 and argument 2 support or counter each other? Answer in one word in the form of \'support\' or \'counter\'.\n\nAnswer:'
