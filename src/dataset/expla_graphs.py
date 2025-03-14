@@ -21,6 +21,12 @@ class ExplaGraphsDataset(Dataset):
         # with open(f"{PATH}/questions.jsonl", 'r') as f:
         #     self.questions = f.readlines()
         #     self.questions = [json.loads(question) for question in self.questions]
+        # self.prompt = """
+        # You are an expert in the Python programming language.
+        # You are provided several code snippets and a question about the code.
+        # Your goal is to answer the question using the provided code snippets.
+        # Your answer must be in the natural language only.
+        # """
         
         # self.graph = None
         # self.graph_type = 'Repository Graph'
@@ -32,6 +38,7 @@ class ExplaGraphsDataset(Dataset):
 
     def __len__(self):
         """Return the len of the dataset."""
+        # return len(self.nodes)
         return len(self.text)
 
     def __getitem__(self, index):
