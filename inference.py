@@ -16,12 +16,8 @@ from src.utils.collate import collate_fn
 
 def main(args):
 
-    # Step 1: Set up wandb
+    # Step 1: Seed everything
     seed = args.seed
-    # wandb.init(project=f"{args.project}",
-    #            name=f"{args.dataset}_{args.model_name}_seed{seed}",
-    #            config=args)
-
     seed_everything(seed=seed)
     print(args)
 
@@ -30,7 +26,7 @@ def main(args):
 
     # Step 2: Build Node Classification Dataset
     # test_dataset = [dataset[i] for i in idx_split['test']]
-    test_dataset = [dataset[i] for i in [0, 1, 2]]
+    test_dataset = [dataset[i] for i in range(len(dataset))]
     test_loader = DataLoader(test_dataset, batch_size=args.eval_batch_size, drop_last=False, pin_memory=True, shuffle=False, collate_fn=collate_fn)
 
     # Step 3: Build Model
@@ -56,7 +52,6 @@ def main(args):
     # Step 5. Post-processing & Evaluating
     acc = eval_funcs[args.dataset](path)
     print(f'Test Acc {acc}')
-    wandb.log({'Test Acc': acc})
 
 
 if __name__ == "__main__":

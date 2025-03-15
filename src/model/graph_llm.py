@@ -220,7 +220,7 @@ class GraphLLM(torch.nn.Module):
                 'pred': pred,
                 'label': samples['label'],
                 'question': samples['question'],
-                'desc': samples['desc'], }
+            }
 
     def print_trainable_params(self):
         trainable_params = 0
