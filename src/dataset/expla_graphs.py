@@ -11,8 +11,7 @@ class ExplaGraphsDataset(Dataset):
     def __init__(self):
         super().__init__()
 
-        with open(f"{PATH}/nodes.csv", 'r') as nodes,
-             open(f"{PATH}/edges.csv", 'r') as edges:
+        with open(f"{PATH}/nodes.csv", 'r') as nodes, open(f"{PATH}/edges.csv", 'r') as edges:
             node_list = nodes.read()
             edge_list = edges.read()
             self.desc = f"{node_list}/n{edge_list}"
