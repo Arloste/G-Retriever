@@ -4,57 +4,50 @@ import torch
 from torch.utils.data import Dataset
 
 
-PATH = 'dataset/expla_graphs'
-# PATH = '../test_input'
+PATH = 'dataset'
 
 
 class ExplaGraphsDataset(Dataset):
     def __init__(self):
         super().__init__()
 
-        # with open(f"{PATH}/output/nodes.csv", 'r') as f:
-        #     self.nodes = f.readlines()
+        with open(f"{PATH}/nodes.csv", 'r') as nodes,
+             open(f"{PATH}/edges.csv", 'r') as edges:
+            node_list = nodes.read()
+            edge_list = edges.read()
+            self.desc = f"{node_list}/n{edge_list}"
         
-        # with open(f"{PATH}/output/edges.csv", 'r') as f:
-        #     self.edges = f.readlines()
-
-        # with open(f"{PATH}/questions.jsonl", 'r') as f:
-        #     self.questions = f.readlines()
-        #     self.questions = [json.loads(question) for question in self.questions]
-        # self.prompt = """
-        # You are an expert in the Python programming language.
-        # You are provided several code snippets and a question about the code.
-        # Your goal is to answer the question using the provided code snippets.
-        # Your answer must be in the natural language only.
-        # """
+        with open(f"{PATH}/questions.jsonl", 'r') as f:
+            questions = f.readlines()
+            questions = [json.loads(question) for question in self.questions]
+            self.questions = [x['question'] for x in questions]
+            self.labels = [x['answer'] for x in questions]
         
-        # self.graph = None
-        # self.graph_type = 'Repository Graph'
+        self.graph = torch.load(f'{PATH}/graph.pt')
 
-        self.text = pd.read_csv(f'{PATH}/train_dev.tsv', sep='\t')
-        self.prompt = 'Question: Do argument 1 and argument 2 support or counter each other? Answer in one word in the form of \'support\' or \'counter\'.\n\nAnswer:'
-        self.graph = None
-        self.graph_type = 'Explanation Graph'
+        self.prompt = """<s>[INST] <<SYS>>
+You are an AI programming assistant that is an expert in the Spyder IDE Git repository. Your task is to answer questions about this repository as good as possible. Consider the following information about the repository. The repository is open-source and hosted on GitHub. Anybody can contribute to the codebase.
+Please only give truthful answers, and if you don’t know an answer, don’t hallucinate, but write that you don’t know it.
+<</SYS>>
+
+<[USER QUESTION]> [/INST]
+        """
+        
+        # Left for compatibility with original code
+        self.graph_type = 'Repository Graph'
+
 
     def __len__(self):
         """Return the len of the dataset."""
-        # return len(self.nodes)
-        return len(self.text)
+        return len(self.questions)
 
     def __getitem__(self, index):
-
-        text = self.text.iloc[index]
-        graph = torch.load(f'{PATH}/graphs/{index}.pt')
-        question = f'Argument 1: {text.arg1}\nArgument 2: {text.arg2}\n{self.prompt}'
-        nodes = pd.read_csv(f'{PATH}/nodes/{index}.csv')
-        edges = pd.read_csv(f'{PATH}/edges/{index}.csv')
-        desc = nodes.to_csv(index=False)+'\n'+edges.to_csv(index=False)
-
+        question = self.prompt.replace("<[USER QUESTION]>", self.questions[index])
         return {
             'id': index,
-            'label': text['label'],
-            'desc': desc,
-            'graph': graph,
+            'label': self.labels[index],
+            'desc': self.desc,
+            'graph': self.graph,
             'question': question,
         }
 
