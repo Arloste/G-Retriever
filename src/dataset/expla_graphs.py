@@ -18,7 +18,7 @@ class ExplaGraphsDataset(Dataset):
         
         with open(f"{PATH}/questions.jsonl", 'r') as f:
             questions = f.readlines()
-            questions = [json.loads(question) for question in self.questions]
+            questions = [json.loads(question) for question in questions]
             self.questions = [x['question'] for x in questions]
             self.labels = [x['answer'] for x in questions]
         
