@@ -22,10 +22,8 @@ def main(args):
     print(args)
 
     dataset = load_dataset[args.dataset]()
-    # idx_split = dataset.get_idx_split()
 
     # Step 2: Build Node Classification Dataset
-    # test_dataset = [dataset[i] for i in idx_split['test']]
     test_dataset = [dataset[i] for i in range(len(dataset))]
     test_loader = DataLoader(test_dataset, batch_size=args.eval_batch_size, drop_last=False, pin_memory=True, shuffle=False, collate_fn=collate_fn)
 

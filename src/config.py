@@ -24,7 +24,7 @@ def parse_args_llama():
     parser.add_argument("--warmup_epochs", type=float, default=1)
 
     # Inference
-    parser.add_argument("--eval_batch_size", type=int, default=16)
+    parser.add_argument("--eval_batch_size", type=int, default=2)
 
     # LLM related
     parser.add_argument("--llm_model_name", type=str, default='7b')
@@ -32,9 +32,9 @@ def parse_args_llama():
     parser.add_argument("--llm_frozen", type=str, default='True')
     parser.add_argument("--llm_num_virtual_tokens", type=int, default=10)
     parser.add_argument("--output_dir", type=str, default='output')
-    parser.add_argument("--max_txt_len", type=int, default=512)
-    parser.add_argument("--max_new_tokens", type=int, default=32)
-    parser.add_argument("--max_memory", type=csv_list, default=[80,80])
+    parser.add_argument("--max_txt_len", type=int, default=1024)
+    parser.add_argument("--max_new_tokens", type=int, default=256)
+    parser.add_argument("--max_memory", type=csv_list, default=[14,14])
 
     # GNN related
     parser.add_argument("--gnn_model_name", type=str, default='gt')

@@ -8,7 +8,7 @@ from torch.utils.data import DataLoader
 import numpy as np
 
 pretrained_repo = 'sentence-transformers/all-roberta-large-v1'
-batch_size = 1024  # Adjust the batch size as needed
+batch_size = 128  # Adjust the batch size as needed
 
 
 # replace with the path to the word2vec file
