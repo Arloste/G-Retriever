@@ -1,5 +1,4 @@
 import json
-import pandas as pd
 import torch
 from torch.utils.data import Dataset
 
@@ -26,11 +25,10 @@ class ExplaGraphsDataset(Dataset):
 
         self.prompt = """<s>[INST] <<SYS>>
 You are an AI programming assistant that is an expert in the Spyder IDE Git repository. Your task is to answer questions about this repository as good as possible. Consider the following information about the repository. The repository is open-source and hosted on GitHub. Anybody can contribute to the codebase.
-Please only give truthful answers, and if you don’t know an answer, don’t hallucinate, but write that you don’t know it.
+Please only give truthful answers, and if you don’t know an answer, don’t hallucinate, but write that you don’t know it. Also, your answer must be informative, direct, concise and to the point, at most 2 - 3 sentences long.
 <</SYS>>
 
-<[USER QUESTION]> [/INST]
-        """
+<[USER QUESTION]> [/INST]"""
         
         # Left for compatibility with original code
         self.graph_type = 'Repository Graph'

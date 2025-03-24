@@ -57,6 +57,7 @@ docs/_build/
 #dataset/
 dataset/gqa/val_sceneGraphs.json
 dataset/gqa/train_sceneGraphs.json
+dataset_/graph.pt
 
 # logs and results
 logs/

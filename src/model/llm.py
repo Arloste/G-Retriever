@@ -182,8 +182,7 @@ class LLM(torch.nn.Module):
         return {'id': samples['id'],
                 'pred': pred,
                 'label': samples['label'],
-                'question': samples['question'],
-                'desc': samples['desc'], }
+                'question': samples['question']  }
 
     def print_trainable_params(self):
         trainable_params = 0

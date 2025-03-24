@@ -16,7 +16,7 @@ def parse_args_llama():
     parser.add_argument("--patience", type=float, default=2)
 
     # Model Training
-    parser.add_argument("--batch_size", type=int, default=8)
+    parser.add_argument("--batch_size", type=int, default=4)
     parser.add_argument("--grad_steps", type=int, default=2)
 
     # Learning Rate Scheduler
@@ -32,8 +32,8 @@ def parse_args_llama():
     parser.add_argument("--llm_frozen", type=str, default='True')
     parser.add_argument("--llm_num_virtual_tokens", type=int, default=10)
     parser.add_argument("--output_dir", type=str, default='output')
-    parser.add_argument("--max_txt_len", type=int, default=1024)
-    parser.add_argument("--max_new_tokens", type=int, default=256)
+    parser.add_argument("--max_txt_len", type=int, default=16)
+    parser.add_argument("--max_new_tokens", type=int, default=128)
     parser.add_argument("--max_memory", type=csv_list, default=[14,14])
 
     # GNN related
