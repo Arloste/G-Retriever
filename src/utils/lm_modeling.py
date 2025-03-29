@@ -8,7 +8,7 @@ from torch.utils.data import DataLoader
 import numpy as np
 
 pretrained_repo = 'sentence-transformers/all-roberta-large-v1'
-batch_size = 128  # Adjust the batch size as needed
+batch_size = 64  # Adjust the batch size as needed
 
 
 # replace with the path to the word2vec file
@@ -123,7 +123,7 @@ def sber_text2embedding(model, tokenizer, device, text):
     # Iterate through batches
     with torch.no_grad():
 
-        for batch in dataloader:
+        for batch in tqdm(dataloader):
             # Move batch to the appropriate device
             batch = {key: value.to(device) for key, value in batch.items()}
 
