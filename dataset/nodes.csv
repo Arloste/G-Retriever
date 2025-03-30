@@ -1,23 +1,23 @@
 id,name
 0,root
 1,codegraph
-2,#codegraph/utils.py's text outside functions:\nimport glob\nfrom pathlib import Path\nfrom typing import List, Union\n\n\n
-3,codegraph/awgr
-4,codegraph/awgr/ex.txt file contents:\nJust a text file\n\nNothing special about it\n\n\n\n\n\n\n\n\n\n\n\nA m   o   g  Us
-5,codegraph/awgr/eagers.py
-6,codegraph/README.md file contents:\n#This is a readme file\n\n## This file contains very important information
-7,tests
-8,tests/explain.md file contents:\nexplanation\n\nwithout \n\n\n\nmany\nwo rds
-9,#codegraph/wehr.py's text outside functions:\nfrom awgr.eagers import cfa\n\n
-10,topleve.md file contents:\n\njust a markdown
-11,#codegraph/core.py's text outside functions:\nimport os\nfrom argparse import Namespace\nfrom collections import defaultdict, deque\nfrom typing import Dict, List, Set, Text, Tuple\n\nfrom codegraph.parser import Import, create_objects_array\nfrom codegraph.utils import get_python_paths_list\n\naliases = {}\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n
-12,#codegraph/main.py's text outside functions:\n""" main module of testsdiffer for console (cli) usage"""\n\nimport pprint\nimport sys\n\nimport click\n\nfrom codegraph import __version__, core\n\nCONTEXT_SETTINGS = dict(help_option_names=["-h", "--help"])\n\n\n@click.command(context_settings=CONTEXT_SETTINGS)\n@click.version_option(version=__version__, message="CodeGraph version %(version)s")\n@click.argument("paths", nargs=-1, type=click.Path(exists=True))\n@click.option(\n    "-o",\n    "--object-only",\n    is_flag=True,\n    help="Don't visualize code dependencies as graph",\n)\n@click.option("--file-path", help="File path to start dependency search from")\n@click.option("--distance", type=int, help="Distance to search for dependencies")\n\n\n\n\nif __name__ == "__main__":\n    cli()\n
-13,tests/test_data
-14,#tests/test_data/vizualyzer.py's text outside functions:\nimport os\nfrom typing import Dict\n\nimport matplotlib.pyplot as plt\nimport networkx as nx\n\n\n\n\n
-15,#tests/test_codegraph.py's text outside functions:\nimport pathlib\nfrom argparse import Namespace\n\nfrom codegraph.core import CodeGraph\n\n\n
-16,#tests/test_utils.py's text outside functions:\nimport pathlib\n\nimport pytest\n\nfrom codegraph.utils import get_python_paths_list\n\n\n\n\n
-17,#codegraph/vizualyzer.py's text outside functions:\nimport os\nfrom typing import Dict\n\nimport matplotlib.pyplot as plt\nimport networkx as nx\n\nfrom wehr import agaerg\n\n\n\n
-18,#codegraph/parser.py's text outside functions:\n# 'cut of' code from pythons pyclrb with some additionals\nimport io\nimport tokenize\nfrom token import DEDENT, NAME, NL\nfrom typing import List, Text\n\n__all__ = ["Class", "Function"]\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n
+2,#codegraph/wehr.py's text outside functions:\nfrom awgr.eagers import cfa\n\n
+3,codegraph/README.md file contents:\n#This is a readme file\n\n## This file contains very important information
+4,#codegraph/core.py's text outside functions:\nimport os\nfrom argparse import Namespace\nfrom collections import defaultdict, deque\nfrom typing import Dict, List, Set, Text, Tuple\n\nfrom codegraph.parser import Import, create_objects_array\nfrom codegraph.utils import get_python_paths_list\n\naliases = {}\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n
+5,#codegraph/main.py's text outside functions:\n""" main module of testsdiffer for console (cli) usage"""\n\nimport pprint\nimport sys\n\nimport click\n\nfrom codegraph import __version__, core\n\nCONTEXT_SETTINGS = dict(help_option_names=["-h", "--help"])\n\n\n@click.command(context_settings=CONTEXT_SETTINGS)\n@click.version_option(version=__version__, message="CodeGraph version %(version)s")\n@click.argument("paths", nargs=-1, type=click.Path(exists=True))\n@click.option(\n    "-o",\n    "--object-only",\n    is_flag=True,\n    help="Don't visualize code dependencies as graph",\n)\n@click.option("--file-path", help="File path to start dependency search from")\n@click.option("--distance", type=int, help="Distance to search for dependencies")\n\n\n\n\nif __name__ == "__main__":\n    cli()\n
+6,tests
+7,tests/explain.md file contents:\nexplanation\n\nwithout \n\n\n\nmany\nwo rds
+8,codegraph/awgr
+9,codegraph/awgr/eagers.py
+10,#tests/test_utils.py's text outside functions:\nimport pathlib\n\nimport pytest\n\nfrom codegraph.utils import get_python_paths_list\n\n\n\n\n
+11,#tests/test_codegraph.py's text outside functions:\nimport pathlib\nfrom argparse import Namespace\n\nfrom codegraph.core import CodeGraph\n\n\n
+12,codegraph/awgr/ex.txt file contents:\nJust a text file\n\nNothing special about it\n\n\n\n\n\n\n\n\n\n\n\nA m   o   g  Us
+13,#codegraph/utils.py's text outside functions:\nimport glob\nfrom pathlib import Path\nfrom typing import List, Union\n\n\n
+14,#codegraph/vizualyzer.py's text outside functions:\nimport os\nfrom typing import Dict\n\nimport matplotlib.pyplot as plt\nimport networkx as nx\n\nfrom wehr import agaerg\n\n\n\n
+15,#codegraph/parser.py's text outside functions:\n# 'cut of' code from pythons pyclrb with some additionals\nimport io\nimport tokenize\nfrom token import DEDENT, NAME, NL\nfrom typing import List, Text\n\n__all__ = ["Class", "Function"]\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n
+16,topleve.md file contents:\n\njust a markdown
+17,tests/test_data
+18,#tests/test_data/vizualyzer.py's text outside functions:\nimport os\nfrom typing import Dict\n\nimport matplotlib.pyplot as plt\nimport networkx as nx\n\n\n\n\n
 19,# location: codegraph/awgr/eagers.py\ndef cfa():\n    return "awgga"
 20,# location: codegraph/core.py\ndef read_file_content(path: Text) -> Text:\n    with open(path, "r+") as file_read:\n        return file_read.read()
 21,# location: codegraph/core.py\ndef parse_code_file(path: Text) -> List:\n    """read module source and parse to get objects array"""\n    source = read_file_content(path)\n    parsed_module = create_objects_array(source=source, fname=os.path.basename(path))\n    return parsed_module
