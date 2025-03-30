@@ -219,7 +219,7 @@ class GraphLLM(torch.nn.Module):
         return {'id': samples['id'],
                 'pred': pred,
                 'label': samples['label'],
-                'question': samples['question'],
+                'question': samples['question_'], # get just the question, without prompt
             }
 
     def print_trainable_params(self):

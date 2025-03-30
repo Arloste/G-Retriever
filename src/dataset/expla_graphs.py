@@ -45,7 +45,8 @@ Please only give truthful answers, and if you don’t know an answer, don’t ha
             'label': self.labels[index],
             'desc': self.desc,
             'graph': self.graph,
-            'question': question,
+            'question': question, # full prompt with question
+            'question_': self.questions[index] # just the question, without the prompt
         }
 
     def get_idx_split(self):

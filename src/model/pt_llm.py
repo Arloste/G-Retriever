@@ -198,8 +198,8 @@ class PromptTuningLLM(torch.nn.Module):
         return {'id': samples['id'],
                 'pred': pred,
                 'label': samples['label'],
-                'question': samples['question'],
-                'desc': samples['desc'], }
+                'question': samples['question_'], # get just the question without the prompt
+                }
 
     def print_trainable_params(self):
         trainable_params = 0

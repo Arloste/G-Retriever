@@ -24,7 +24,7 @@ def parse_args_llama():
     parser.add_argument("--warmup_epochs", type=float, default=1)
 
     # Inference
-    parser.add_argument("--eval_batch_size", type=int, default=2)
+    parser.add_argument("--eval_batch_size", type=int, default=12)
 
     # LLM related
     parser.add_argument("--llm_model_name", type=str, default='7b')
