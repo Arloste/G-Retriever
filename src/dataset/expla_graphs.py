@@ -52,13 +52,13 @@ Please only give truthful answers, and if you don’t know an answer, don’t ha
     def get_idx_split(self):
 
         # Load the saved indices
-        with open(f'{PATH}/split/train_indices.txt', 'r') as file:
+        with open(f'{PATH}/train_indices.txt', 'r') as file:
             train_indices = [int(line.strip()) for line in file]
 
-        with open(f'{PATH}/split/val_indices.txt', 'r') as file:
+        with open(f'{PATH}/val_indices.txt', 'r') as file:
             val_indices = [int(line.strip()) for line in file]
 
-        with open(f'{PATH}/split/test_indices.txt', 'r') as file:
+        with open(f'{PATH}/test_indices.txt', 'r') as file:
             test_indices = [int(line.strip()) for line in file]
 
         return {'train': train_indices, 'val': val_indices, 'test': test_indices}

@@ -46,10 +46,6 @@ coverage.xml
 *.log
 *.pot
 
-# Output
-*.out
-*.txt
-
 # Sphinx documentation
 docs/_build/
 
